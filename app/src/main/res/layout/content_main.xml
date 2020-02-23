@@ -9,24 +9,18 @@
     tools:showIn="@layout/activity_main"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="First Name "
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editText"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:orientation="vertical"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_marginStart="9dp"
-        android:inputType="textPersonName"
-        android:hint="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="0dp"
+        android:gravity="center_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
