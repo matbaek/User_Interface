@@ -4,31 +4,31 @@ import android.graphics.Color
 import android.os.Bundle
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var container: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        container = findViewById(R.id.linearLayout)
+        button.setOnClickListener{
+            val username = nameInput.text.toString()
+            val password = passwordInput.text.toString()
+            val message = getString(R.string.login_message, username, password)
 
-        addTextView("Hello")
-        addTextView("From")
-        addTextView("Android")
+            val snack = Snackbar.make(it, message, Snackbar.LENGTH_LONG)
+                .setAction("Click me", {showAnotherMessage()})
+                .show()
+        }
     }
 
-    private fun addTextView(label: String) {
-        val view = TextView(this)
-        view.text = label
-        view.textSize = 28f
-        view.setTextColor(Color.parseColor("#FF0000"))
-
-        container.addView(view)
+    private fun showAnotherMessage() {
+        Toast.makeText(this, "You clicked!", Toast.LENGTH_LONG).show()
     }
 }
